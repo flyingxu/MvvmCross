@@ -100,6 +100,8 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="Setup.cs" />
+    <Compile Include="DebugTrace.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
@@ -140,6 +142,10 @@
     <ProjectReference Include="..\Playground.Forms.UI\Playground.Forms.UI.csproj">
       <Project>{545c1972-05dc-4aec-87cb-70ccd3296f8d}</Project>
       <Name>Playground.Forms.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Playground.Core\Playground.Core.csproj">
+      <Project>{56CD2748-857D-442A-9268-95D99F552840}</Project>
+      <Name>Playground.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />

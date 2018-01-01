@@ -130,7 +130,9 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="Properties\AndroidManifest.xml" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
     <AndroidResource Include="Resources\layout\fragment_settings.axml" />
     <AndroidResource Include="Resources\layout\activity_login.axml">
       <SubType>Designer</SubType>

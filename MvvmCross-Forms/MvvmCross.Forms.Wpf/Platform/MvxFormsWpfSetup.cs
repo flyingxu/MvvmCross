@@ -1,5 +1,8 @@
+using MvvmCross.Binding;
+using MvvmCross.Binding.Bindings.Target.Construction;
 using MvvmCross.Core.ViewModels;
 using MvvmCross.Forms.Platform;
+using MvvmCross.Forms.Wpf.Bindings;
 using MvvmCross.Wpf.Platform;
 using MvvmCross.Wpf.Views.Presenters;
 using System;
@@ -27,5 +30,20 @@ namespace MvvmCross.Forms.Wpf.Platform
         {
 
         }
+
+        protected override void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
+        {
+            MvxFormsSetupHelper.FillTargetFactories(registry);
+            base.FillTargetFactories(registry);
+        }
+
+        protected override void FillBindingNames(Binding.BindingContext.IMvxBindingNameRegistry registry)
+        {
+            MvxFormsSetupHelper.FillBindingNames(registry);
+            base.FillBindingNames(registry);
+        }
+
+        protected override MvxBindingBuilder CreateBindingBuilder() => new MvxFormsWpfBindingBuilder();
+
     }
 }

@@ -74,6 +74,7 @@
     <Compile Include="..\..\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="Bindings\MvxFormsWpfBindingBuilder.cs" />
     <Compile Include="Platform\MvxFormsWpfSetup.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

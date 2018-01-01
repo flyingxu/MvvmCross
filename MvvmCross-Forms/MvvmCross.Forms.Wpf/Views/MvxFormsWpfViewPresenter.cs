@@ -1,3 +1,5 @@
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Core.Views;
 using MvvmCross.Forms.Platform;
 using MvvmCross.Forms.Views;
 using MvvmCross.Platform;
@@ -15,10 +17,10 @@ namespace MvvmCross.Forms.Wpf.Views
     //WPF + Forms
     public class MvxFormsWpfViewPresenter : MvxWpfViewPresenter, IMvxFormsViewPresenter
     {
-        public MvxFormsWpfViewPresenter(ContentControl mainWindow)
+        public MvxFormsWpfViewPresenter(ContentControl mainWindow, MvxFormsApplication formsApplication)
             : base (mainWindow)
         {
-
+            FormsApplication = formsApplication ?? throw new ArgumentNullException(nameof(formsApplication), "MvxFormsApplication cannot be null");
         }
 
         private MvxFormsApplication _formsApplication;
@@ -47,10 +49,38 @@ namespace MvvmCross.Forms.Wpf.Views
             }
         }
 
+        public override void RegisterAttributeTypes()
+        {
+            base.RegisterAttributeTypes();
+
+            FormsPagePresenter.RegisterAttributeTypes();
+        }
+
+        public override void ChangePresentation(MvxPresentationHint hint)
+        {
+            FormsPagePresenter.ChangePresentation(hint);
+        }
+
+        public override MvxBasePresentationAttribute CreatePresentationAttribute(Type viewModelType, Type viewType)
+        {
+            var presentationAttribute = FormsPagePresenter.CreatePresentationAttribute(viewModelType, viewType);
+            return presentationAttribute ?? base.CreatePresentationAttribute(viewModelType, viewType);
+        }
+
         public virtual bool ClosePlatformViews()
         {
             MvxTrace.Trace($"Closing of native Views in Forms is not supported on Wpf.");
             return false;
+        }
+
+        public override void Show(MvxViewModelRequest request)
+        {
+            FormsPagePresenter.Show(request);
+        }
+
+        public override void Close(IMvxViewModel viewModel)
+        {
+            FormsPagePresenter.Close(viewModel);
         }
     }
 }

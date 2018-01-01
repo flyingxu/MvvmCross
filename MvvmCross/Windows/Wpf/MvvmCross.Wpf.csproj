@@ -68,6 +68,14 @@
     <Compile Include="Views\MvxWpfViewDispatcher.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Binding\Wpf\MvvmCross.Binding.Wpf.csproj">
+      <Project>{11674474-0123-4d7d-9f01-ebaa8bd039bd}</Project>
+      <Name>MvvmCross.Binding.Wpf</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Core\Binding\MvvmCross.Binding.csproj">
+      <Project>{64dcd397-9019-41e8-a928-e5f5c5df185b}</Project>
+      <Name>MvvmCross.Binding</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Platform\Platform\MvvmCross.Platform.csproj">
       <Project>{CFF6F25A-3C3B-44EE-A54C-2ED4AAFF3ADB}</Project>
       <Name>MvvmCross.Platform</Name>

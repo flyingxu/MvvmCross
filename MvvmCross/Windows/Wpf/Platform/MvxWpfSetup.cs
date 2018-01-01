@@ -15,6 +15,15 @@ using MvvmCross.Platform.Plugins;
 using MvvmCross.Wpf.Views;
 using MvvmCross.Wpf.Views.Presenters;
 using System.Windows.Controls;
+using MvvmCross.Platform.Converters;
+using MvvmCross.Binding.Bindings.Target.Construction;
+using MvvmCross.Binding.BindingContext;
+using MvvmCross.Binding;
+using MvvmCross.Binding.Wpf;
+using MvvmCross.Binding.Binders;
+using System.Collections.Generic;
+using System.Reflection;
+using System;
 
 namespace MvvmCross.Wpf.Platform
 {
@@ -71,6 +80,60 @@ namespace MvvmCross.Wpf.Platform
         protected override IMvxNameMapping CreateViewToViewModelNaming()
         {
             return new MvxPostfixAwareViewToViewModelNameMapping("View", "Control");
+        }
+
+        protected override void InitializeLastChance()
+        {
+            InitializeBindingBuilder();
+            base.InitializeLastChance();
+        }
+
+        protected virtual void InitializeBindingBuilder()
+        {
+            RegisterBindingBuilderCallbacks();
+            var bindingBuilder = CreateBindingBuilder();
+            bindingBuilder.DoRegistration();
+        }
+
+        protected virtual void RegisterBindingBuilderCallbacks()
+        {
+            Mvx.CallbackWhenRegistered<IMvxValueConverterRegistry>(FillValueConverters);
+            Mvx.CallbackWhenRegistered<IMvxTargetBindingFactoryRegistry>(FillTargetFactories);
+            Mvx.CallbackWhenRegistered<IMvxBindingNameRegistry>(FillBindingNames);
+        }
+
+        protected virtual void FillValueConverters(IMvxValueConverterRegistry registry)
+        {
+            registry.Fill(ValueConverterAssemblies);
+            registry.Fill(ValueConverterHolders);
+        }
+
+        protected virtual void FillBindingNames(IMvxBindingNameRegistry registry)
+        {
+            // this base class does nothing
+        }
+
+        protected virtual void FillTargetFactories(IMvxTargetBindingFactoryRegistry registry)
+        {
+            // this base class does nothing
+        }
+
+        protected virtual List<Type> ValueConverterHolders => new List<Type>();
+
+        protected virtual IEnumerable<Assembly> ValueConverterAssemblies
+        {
+            get
+            {
+                var toReturn = new List<Assembly>();
+                toReturn.AddRange(GetViewModelAssemblies());
+                toReturn.AddRange(GetViewAssemblies());
+                return toReturn;
+            }
+        }
+
+        protected virtual MvxBindingBuilder CreateBindingBuilder()
+        {
+            return new MvxWindowsBindingBuilder();
         }
     }
 }

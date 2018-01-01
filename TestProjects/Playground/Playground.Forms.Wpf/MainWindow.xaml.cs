@@ -35,7 +35,8 @@ namespace Playground.Forms.Wpf
             var iocProvider = MvxSimpleIoCContainer.Initialize();
             Mvx.RegisterSingleton(iocProvider);
 
-            var presenter = new MvxFormsWpfViewPresenter(this);
+            var formsApplication = new FormsApp();
+            var presenter = new MvxFormsWpfViewPresenter(this, formsApplication);
             Mvx.RegisterSingleton<IMvxFormsViewPresenter>(presenter);
             var setup = new Setup(Dispatcher, presenter);
             setup.Initialize();
@@ -44,7 +45,7 @@ namespace Playground.Forms.Wpf
             start.Start();
 
 
-            LoadApplication(new FormsApp());  
+            LoadApplication(formsApplication);  
 
         }
 

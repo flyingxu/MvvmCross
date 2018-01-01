@@ -21,8 +21,8 @@ namespace MvvmCross.Wpf.Platform
     public abstract class MvxWpfSetup
         : MvxSetup
     {
-        private readonly Dispatcher _uiThreadDispatcher;
-        private readonly IMvxWpfViewPresenter _presenter;
+        protected readonly Dispatcher _uiThreadDispatcher;
+        protected readonly IMvxWpfViewPresenter _presenter;
 
         protected MvxWpfSetup(Dispatcher uiThreadDispatcher, IMvxWpfViewPresenter presenter)
         {

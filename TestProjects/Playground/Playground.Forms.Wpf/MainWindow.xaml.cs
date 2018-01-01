@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,17 +12,21 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Xamarin.Forms.Platform.WPF;
 
 namespace Playground.Forms.Wpf
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : FormsApplicationPage
     {
         public MainWindow()
         {
             InitializeComponent();
+
+            Xamarin.Forms.Forms.Init();
+            LoadApplication(new FormsApp());
         }
     }
 }

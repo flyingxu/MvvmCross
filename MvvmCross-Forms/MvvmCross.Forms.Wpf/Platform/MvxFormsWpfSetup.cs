@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Threading;
 
 namespace MvvmCross.Forms.Wpf.Platform
@@ -19,6 +20,12 @@ namespace MvvmCross.Forms.Wpf.Platform
         protected MvxFormsWpfSetup(Dispatcher uiThreadDispatcher, IMvxWpfViewPresenter presenter)
             : base(uiThreadDispatcher, presenter)
         {
+        }
+
+        protected MvxFormsWpfSetup(Dispatcher uiThreadDispatcher, ContentControl root)
+            : base(uiThreadDispatcher, root)
+        {
+
         }
     }
 }

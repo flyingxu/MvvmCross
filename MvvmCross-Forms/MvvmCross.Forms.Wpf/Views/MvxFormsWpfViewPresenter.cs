@@ -8,12 +8,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace MvvmCross.Forms.Wpf.Views
 {
     //WPF + Forms
     public class MvxFormsWpfViewPresenter : MvxWpfViewPresenter, IMvxFormsViewPresenter
     {
+        public MvxFormsWpfViewPresenter(ContentControl mainWindow)
+            : base (mainWindow)
+        {
+
+        }
 
         private MvxFormsApplication _formsApplication;
         public MvxFormsApplication FormsApplication

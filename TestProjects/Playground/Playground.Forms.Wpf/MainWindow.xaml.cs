@@ -1,3 +1,8 @@
+using MvvmCross.Core.ViewModels;
+using MvvmCross.Forms.Views;
+using MvvmCross.Forms.Wpf.Views;
+using MvvmCross.Platform;
+using MvvmCross.Platform.IoC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,7 +31,33 @@ namespace Playground.Forms.Wpf
             InitializeComponent();
 
             Xamarin.Forms.Forms.Init();
-            LoadApplication(new FormsApp());
+
+            var iocProvider = MvxSimpleIoCContainer.Initialize();
+            Mvx.RegisterSingleton(iocProvider);
+
+            var presenter = new MvxFormsWpfViewPresenter(this);
+            Mvx.RegisterSingleton<IMvxFormsViewPresenter>(presenter);
+            var setup = new Setup(Dispatcher, presenter);
+            setup.Initialize();
+
+            var start = Mvx.Resolve<IMvxAppStart>();
+            start.Start();
+
+
+            LoadApplication(new FormsApp());  
+
+        }
+
+        protected override void Appearing()
+        {
+            base.Appearing();
+            ;
+        }
+
+        private void FormsApplicationPage_Loaded(object sender, RoutedEventArgs e)
+        {
+
+
         }
     }
 }

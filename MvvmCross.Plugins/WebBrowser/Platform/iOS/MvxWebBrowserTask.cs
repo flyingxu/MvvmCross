@@ -3,9 +3,9 @@
 // See the LICENSE file in the project root for more information.
 
 using Foundation;
-using MvvmCross.Platform.iOS.Platform;
+using MvvmCross.Platform.Ios;
 
-namespace MvvmCross.Plugins.WebBrowser.iOS
+namespace MvvmCross.Plugin.WebBrowser.Platform.Ios
 {
     [Preserve(AllMembers = true)]
 	public class MvxWebBrowserTask : MvxIosTask, IMvxWebBrowserTask

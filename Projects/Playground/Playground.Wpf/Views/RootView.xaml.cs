@@ -1,14 +1,11 @@
-﻿using MvvmCross.Core.ViewModels;
-using MvvmCross.Wpf.Views;
+﻿using MvvmCross.ViewModels;
 using Playground.Core.ViewModels;
 
 namespace Playground.Wpf.Views
 {
-    /// <summary>
-    /// Interaction logic for RootView.xaml
-    /// </summary>
+
     [MvxViewFor(typeof(RootViewModel))]
-    public partial class RootView : MvxWpfView
+    public partial class RootView 
     {
         public RootView()
         {

@@ -1,14 +1,10 @@
-﻿using MvvmCross.Wpf.Views;
-using MvvmCross.Wpf.Views.Presenters.Attributes;
-using Playground.Core.ViewModels;
+﻿using MvvmCross.Platform.Wpf.Presenters.Attributes;
 
 namespace Playground.Wpf.Views
 {
-    /// <summary>
-    /// Interaction logic for SecondChildView.xaml
-    /// </summary>    
+
     [MvxContentPresentation]
-    public partial class SecondChildView : MvxWpfView<SecondChildViewModel>
+    public partial class SecondChildView 
     {
         public SecondChildView()
         {

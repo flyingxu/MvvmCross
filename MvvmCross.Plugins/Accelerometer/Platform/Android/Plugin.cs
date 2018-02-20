@@ -2,14 +2,11 @@
 // The .NET Foundation licenses this file to you under the MS-PL license.
 // See the LICENSE file in the project root for more information.
 
-using MvvmCross.Platform;
-using MvvmCross.Platform.Plugins;
-
-namespace MvvmCross.Plugins.Accelerometer.Droid
+namespace MvvmCross.Plugin.Accelerometer.Platform.Android
 {
+    [MvxPlugin]
     [Preserve(AllMembers = true)]
-    public class Plugin
-        : IMvxPlugin
+    public class Plugin : IMvxPlugin
     {
         public void Load()
         {

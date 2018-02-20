@@ -4,13 +4,12 @@
 
 using System;
 using System.Collections.Generic;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Exceptions;
-using MvvmCross.Platform.Logging;
-using MvvmCross.Platform.Platform;
+using MvvmCross.Exceptions;
+using MvvmCross.Logging;
+using MvvmCross.ViewModels;
+using MvvmCross.ViewModels.Hints;
 
-namespace MvvmCross.Console.Views
+namespace MvvmCross.Platform.Console.Views
 {
     public class MvxConsoleContainer
         : MvxBaseConsoleContainer

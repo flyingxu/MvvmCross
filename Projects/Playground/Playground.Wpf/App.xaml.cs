@@ -1,15 +1,10 @@
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform;
-using MvvmCross.Wpf.Views.Presenters;
-using System;
+﻿using System;
 using System.Windows;
-using System.Windows.Controls;
+using MvvmCross;
+using MvvmCross.ViewModels;
 
 namespace Playground.Wpf
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
     public partial class App : Application
     {
         bool _setupComplete = false;

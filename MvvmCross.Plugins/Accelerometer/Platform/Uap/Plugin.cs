@@ -2,17 +2,14 @@
 // The .NET Foundation licenses this file to you under the MS-PL license.
 // See the LICENSE file in the project root for more information.
 
-using MvvmCross.Platform;
-using MvvmCross.Platform.Plugins;
-
-namespace MvvmCross.Plugins.Accelerometer.Uwp
+namespace MvvmCross.Plugin.Accelerometer.Platform.Uap
 {
-    public class Plugin
-        : IMvxPlugin
+    [MvxPlugin]
+    public class Plugin : IMvxPlugin
     {
         public void Load()
         {
-            Mvx.RegisterSingleton<IMvxAccelerometer>(new MvxWindowsCommonAccelerometer());
+            Mvx.RegisterSingleton<IMvxAccelerometer>(new MvxWindowsAccelerometer());
         }
     }
 }

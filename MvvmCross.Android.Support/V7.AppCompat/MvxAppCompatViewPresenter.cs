@@ -12,14 +12,14 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.App;
 using Android.Support.V4.Util;
 using Android.Support.V4.View;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Core.Views;
 using MvvmCross.Droid.Support.V4;
-using MvvmCross.Droid.Views;
-using MvvmCross.Droid.Views.Attributes;
-using MvvmCross.Platform.Exceptions;
-using MvvmCross.Platform.Logging;
-using MvvmCross.Platform.Platform;
+using MvvmCross.Exceptions;
+using MvvmCross.Logging;
+using MvvmCross.Platform.Android.Presenters;
+using MvvmCross.Platform.Android.Presenters.Attributes;
+using MvvmCross.Platform.Android.Views;
+using MvvmCross.Presenters;
+using MvvmCross.ViewModels;
 
 namespace MvvmCross.Droid.Support.V7.AppCompat
 {
@@ -537,19 +537,19 @@ namespace MvvmCross.Droid.Support.V7.AppCompat
             FragmentManager fragmentManager,
             MvxFragmentPresentationAttribute fragmentAttribute)
         {
+            var fragmentName = FragmentJavaName(fragmentAttribute.ViewType);
+
             if (fragmentManager.BackStackEntryCount > 0)
             {
-                var fragmentName = FragmentJavaName(fragmentAttribute.ViewType);
                 fragmentManager.PopBackStackImmediate(fragmentName, 1);
-
                 OnFragmentPopped(null, null, fragmentAttribute);
 
                 return true;
             }
-            else if (fragmentManager.Fragments.Count > 0 && fragmentManager.FindFragmentByTag(fragmentAttribute.ViewType.Name) != null)
+            else if (fragmentManager.Fragments.Count > 0 && fragmentManager.FindFragmentByTag(fragmentName) != null)
             {
                 var ft = fragmentManager.BeginTransaction();
-                var fragment = fragmentManager.FindFragmentByTag(fragmentAttribute.ViewType.Name);
+                var fragment = fragmentManager.FindFragmentByTag(fragmentName);
 
                 if (!fragmentAttribute.EnterAnimation.Equals(int.MinValue) && !fragmentAttribute.ExitAnimation.Equals(int.MinValue))
                 {

@@ -7,14 +7,11 @@ using System.Threading;
 using Android.Content;
 using Android.Locations;
 using Android.OS;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Droid;
-using MvvmCross.Platform.Droid.Platform;
-using MvvmCross.Platform.Exceptions;
-using MvvmCross.Platform.Logging;
-using MvvmCross.Platform.Platform;
+using MvvmCross.Exceptions;
+using MvvmCross.Logging;
+using MvvmCross.Platform.Android;
 
-namespace MvvmCross.Plugins.Location.Droid
+namespace MvvmCross.Plugin.Location.Platform.Android
 {
     [Preserve(AllMembers = true)]
 	public sealed class MvxAndroidLocationWatcher
@@ -83,7 +80,7 @@ namespace MvvmCross.Plugins.Location.Droid
             }
         }
 
-        private static MvxGeoLocation CreateLocation(Android.Locations.Location androidLocation)
+        private static MvxGeoLocation CreateLocation(global::Android.Locations.Location androidLocation)
         {
             var position = new MvxGeoLocation { Timestamp = androidLocation.Time.FromMillisecondsUnixTimeToUtc() };
             var coords = position.Coordinates;
@@ -123,7 +120,7 @@ namespace MvvmCross.Plugins.Location.Droid
 
         #region Implementation of ILocationListener
 
-        public void OnLocationChanged(Android.Locations.Location androidLocation)
+        public void OnLocationChanged(global::Android.Locations.Location androidLocation)
         {
             if (androidLocation == null)
             {

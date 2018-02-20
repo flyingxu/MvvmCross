@@ -3,15 +3,13 @@
 // See the LICENSE file in the project root for more information.
 
 using System;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Exceptions;
-using MvvmCross.Platform.Plugins;
+using MvvmCross.Exceptions;
 
-namespace MvvmCross.Plugins.File.iOS
+namespace MvvmCross.Plugin.File.Platform.Ios
 {
+    [MvxPlugin]
     [Preserve(AllMembers = true)]
-    public class Plugin
-        : IMvxConfigurablePlugin
+    public class Plugin : IMvxConfigurablePlugin
     {
         private MvxFileConfiguration _configuration;
         private MvxFileConfiguration Configuration => _configuration ?? new MvxFileConfiguration(

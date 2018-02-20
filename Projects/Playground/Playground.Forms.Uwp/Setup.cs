@@ -1,12 +1,12 @@
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Forms.Platform;
-using MvvmCross.Forms.Uwp;
-using MvvmCross.Platform.Logging;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Reflection;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml.Controls;
+using MvvmCross.Forms.Core;
+using MvvmCross.ViewModels;
+using MvvmCross.Forms.Platform.Uap.Core;
+using Playground.Forms.UI;
+using System.Linq;
 
 namespace Playground.Forms.Uwp
 {
@@ -15,10 +15,6 @@ namespace Playground.Forms.Uwp
         public Setup(Frame rootFrame, LaunchActivatedEventArgs e) : base(rootFrame, e)
         {
         }
-
-        protected override MvxLogProviderType GetDefaultLogProviderType() => MvxLogProviderType.None;
-
-        protected override IMvxLogProvider CreateLogProvider() => new EmptyVoidLogProvider();
 
         protected override IEnumerable<Assembly> GetViewAssemblies()
         {

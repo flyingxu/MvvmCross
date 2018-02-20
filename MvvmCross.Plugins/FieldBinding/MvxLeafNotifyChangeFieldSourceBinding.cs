@@ -3,11 +3,9 @@
 // See the LICENSE file in the project root for more information.
 
 using System;
-using MvvmCross.Binding.ExtensionMethods;
-using MvvmCross.FieldBinding;
-using MvvmCross.Platform;
+using MvvmCross.Binding.Extensions;
 
-namespace MvvmCross.Plugins.FieldBinding
+namespace MvvmCross.Plugin.FieldBinding
 {
     [Preserve(AllMembers = true)]
 	public class MvxLeafNotifyChangeFieldSourceBinding

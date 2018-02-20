@@ -7,16 +7,14 @@ using System.Collections.Generic;
 using System.Linq;
 using Foundation;
 using MessageUI;
-using MvvmCross.iOS.Support.Views;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Exceptions;
-using MvvmCross.Platform.iOS.Platform;
-using MvvmCross.Platform.iOS.Views;
+using MvvmCross.Exceptions;
+using MvvmCross.Platform.Ios;
+using MvvmCross.Platform.Ios.Views;
 using UIKit;
 
-namespace MvvmCross.Plugins.Email.iOS
+namespace MvvmCross.Plugin.Email.Platform.Ios
 {
-    [MvvmCross.Platform.Preserve(AllMembers = true)]
+    [MvvmCross.Preserve(AllMembers = true)]
 	public class MvxComposeEmailTask
         : MvxIosTask
         , IMvxComposeEmailTaskEx

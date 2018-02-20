@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using MvvmCross.Binding.BindingContext;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Core.Views;
-using MvvmCross.tvOS.Views;
-using MvvmCross.tvOS.Views.Presenters.Attributes;
+using MvvmCross.Platform.Tvos.Presenters.Attributes;
+using MvvmCross.Platform.Tvos.Views;
+using MvvmCross.Presenters;
+using MvvmCross.ViewModels;
 using Playground.Core.ViewModels;
 using UIKit;
 

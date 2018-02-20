@@ -59,6 +59,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Setup.cs" />
     <Compile Include="Views\WindowChildView.xaml.cs">
       <DependentUpon>WindowChildView.xaml</DependentUpon>
@@ -126,20 +131,11 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -149,34 +145,32 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MvvmCross\Binding\Wpf\MvvmCross.Binding.Wpf.csproj">
-      <Project>{11674474-0123-4d7d-9f01-ebaa8bd039bd}</Project>
-      <Name>MvvmCross.Binding.Wpf</Name>
+    <ProjectReference Include="..\..\..\MvvmCross.Plugins\JsonLocalization\MvvmCross.Plugin.JsonLocalization.csproj">
+      <Project>{c783ef46-1822-4baf-8eca-e820fff26633}</Project>
+      <Name>MvvmCross.Plugin.JsonLocalization</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\MvvmCross\Core\Binding\MvvmCross.Binding.csproj">
-      <Project>{64dcd397-9019-41e8-a928-e5f5c5df185b}</Project>
-      <Name>MvvmCross.Binding</Name>
+    <ProjectReference Include="..\..\..\MvvmCross.Plugins\Json\MvvmCross.Plugin.Json.csproj">
+      <Project>{9a82f120-fbe8-4205-94a3-575630dbcbb9}</Project>
+      <Name>MvvmCross.Plugin.Json</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\MvvmCross\Core\Core\MvvmCross.Core.csproj">
-      <Project>{b6e27475-e7d0-448c-a5cc-5097dca1e2dd}</Project>
-      <Name>MvvmCross.Core</Name>
+    <ProjectReference Include="..\..\..\MvvmCross.Plugins\ResourceLoader\MvvmCross.Plugin.ResourceLoader.csproj">
+      <Project>{4d47736f-d8dc-42f1-8f75-8fc3eff28894}</Project>
+      <Name>MvvmCross.Plugin.ResourceLoader</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\MvvmCross\Platform\Platform\MvvmCross.Platform.csproj">
-      <Project>{cff6f25a-3c3b-44ee-a54c-2ed4aaff3adb}</Project>
-      <Name>MvvmCross.Platform</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\MvvmCross\Platform\Wpf\MvvmCross.Platform.Wpf.csproj">
-      <Project>{3688d6fc-e7f4-485f-8b27-96c0a8c7eaed}</Project>
-      <Name>MvvmCross.Platform.Wpf</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\MvvmCross\Windows\Wpf\MvvmCross.Wpf.csproj">
-      <Project>{3786ea13-a491-4917-9b49-fbe76ba87fab}</Project>
-      <Name>MvvmCross.Wpf</Name>
+    <ProjectReference Include="..\..\..\MvvmCross\MvvmCross.csproj">
+      <Project>{49f965f5-5824-4bbe-94ea-0178f848abdb}</Project>
+      <Name>MvvmCross</Name>
     </ProjectReference>
     <ProjectReference Include="..\Playground.Core\Playground.Core.csproj">
-      <Project>{fea3804a-3bc6-42bd-b40a-1a80d82a9579}</Project>
+      <Project>{fe374d1a-1a19-49bc-8e93-d52399a9c3f3}</Project>
       <Name>Playground.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

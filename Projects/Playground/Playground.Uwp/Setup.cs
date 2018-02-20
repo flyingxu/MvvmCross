@@ -1,8 +1,7 @@
-using Windows.UI.Xaml.Controls;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Platform.Logging;
-using MvvmCross.Uwp.Platform;
-using MvvmCross.Uwp.Views;
+﻿using Windows.UI.Xaml.Controls;
+using MvvmCross.ViewModels;
+using MvvmCross.Platform.Uap.Core;
+using MvvmCross.Platform.Uap.Views;
 
 namespace Playground.Uwp
 {
@@ -14,11 +13,6 @@ namespace Playground.Uwp
 
         public Setup(IMvxWindowsFrame rootFrame) : base(rootFrame)
         {
-        }
-
-        protected override IMvxLogProvider CreateLogProvider()
-        {
-            return new EmptyVoidLogProvider();
         }
 
         protected override IMvxApplication CreateApp()

@@ -5,11 +5,11 @@
 using System;
 using Android.Text;
 using Android.Widget;
-using MvvmCross.Binding.ExtensionMethods;
-using MvvmCross.Platform.Platform;
-using MvvmCross.Platform.WeakSubscription;
+using MvvmCross.Binding;
+using MvvmCross.Binding.Extensions;
+using MvvmCross.Platform.Android.WeakSubscription;
 
-namespace MvvmCross.Binding.Droid.Target
+namespace MvvmCross.Platform.Android.Binding.Target
 {
     public class MvxTextViewTextFormattedTargetBinding
         : MvxAndroidTargetBinding, IMvxEditableTextView

@@ -4,20 +4,19 @@
 
 using System;
 using System.Collections.Generic;
+using MvvmCross.Exceptions;
 using MvvmCross.Localization;
-using MvvmCross.Platform.Exceptions;
-using MvvmCross.Platform.Logging;
-using MvvmCross.Platform.Platform;
+using MvvmCross.Logging;
 
-namespace MvvmCross.Plugins.JsonLocalization
+namespace MvvmCross.Plugin.JsonLocalization
 {
     public abstract class MvxTextProviderBuilder
         : IMvxTextProviderBuilder
     {
-        private readonly string _generalNamespaceKey;
-        private readonly string _rootFolderForResources;
-        private readonly IMvxJsonDictionaryTextLoader _textLoader;
-        private readonly IMvxTextProvider _textProvider;
+        protected readonly string _generalNamespaceKey;
+        protected readonly string _rootFolderForResources;
+        protected readonly IMvxJsonDictionaryTextLoader _textLoader;
+        protected readonly IMvxTextProvider _textProvider;
 
         protected MvxTextProviderBuilder(string generalNamespaceKey, string rootFolderForResources)
             : this(generalNamespaceKey, rootFolderForResources, new MvxContentJsonDictionaryTextProvider())
@@ -42,7 +41,7 @@ namespace MvvmCross.Plugins.JsonLocalization
 
         public IMvxTextProvider TextProvider => _textProvider;
 
-        public void LoadResources(string whichLocalizationFolder)
+        public virtual void LoadResources(string whichLocalizationFolder)
         {
             foreach (var kvp in ResourceFiles)
             {

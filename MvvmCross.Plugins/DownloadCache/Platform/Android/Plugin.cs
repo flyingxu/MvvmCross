@@ -3,16 +3,14 @@
 // See the LICENSE file in the project root for more information.
 
 using Android.Graphics;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Exceptions;
-using MvvmCross.Platform.Platform;
-using MvvmCross.Platform.Plugins;
+using MvvmCross.Base;
+using MvvmCross.Exceptions;
 
-namespace MvvmCross.Plugins.DownloadCache.Droid
+namespace MvvmCross.Plugin.DownloadCache.Platform.Android
 {
+    [MvxPlugin]
     [Preserve(AllMembers = true)]
-    public class Plugin
-        : IMvxConfigurablePlugin
+    public class Plugin : IMvxConfigurablePlugin
     {
         private MvxDownloadCacheConfiguration _configuration;
 

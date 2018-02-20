@@ -3,11 +3,9 @@
 // See the LICENSE file in the project root for more information.
 
 using System.Collections.Generic;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Logging;
-using MvvmCross.Platform.Platform;
+using MvvmCross.Logging;
 
-namespace MvvmCross.Plugins.JsonLocalization
+namespace MvvmCross.Plugin.JsonLocalization
 {
     [Preserve(AllMembers = true)]
 	public class MvxDictionaryTextProvider : MvxTextProvider
@@ -25,9 +23,7 @@ namespace MvvmCross.Plugins.JsonLocalization
             var key = MakeLookupKey(namespaceKey, typeKey, name);
             _entries[key] = value;
         }
-
-        #region Implementation of IMvxTextProvider
-
+        
         public override string GetText(string namespaceKey, string typeKey, string name)
         {
             var key = MakeLookupKey(namespaceKey, typeKey, name);
@@ -54,7 +50,5 @@ namespace MvvmCross.Plugins.JsonLocalization
             textValue = key;
             return false;
         }
-
-        #endregion Implementation of IMvxTextProvider
     }
 }

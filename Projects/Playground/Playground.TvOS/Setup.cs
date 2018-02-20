@@ -1,12 +1,8 @@
 ﻿using UIKit;
-using Foundation;
-
-using MvvmCross.Core.ViewModels;
-using MvvmCross.tvOS.Platform;
-using MvvmCross.tvOS.Views.Presenters;
-using MvvmCross.Platform.Platform;
-
+using MvvmCross.Platform.Tvos.Core;
+using MvvmCross.ViewModels;
 using Playground.Core;
+using MvvmCross.Platform.Tvos.Presenters;
 
 namespace Playground.TvOS
 {
@@ -27,12 +23,7 @@ namespace Playground.TvOS
             return new App();
         }
 
-        protected override IMvxTrace CreateDebugTrace()
-        {
-            return new DebugTrace();
-        }
-
-        protected override IMvxTvosViewPresenter CreatePresenter()
+        protected override IMvxTvosViewPresenter CreateViewPresenter()
         {
             return new MvxTvosViewPresenter(ApplicationDelegate, Window);
         }

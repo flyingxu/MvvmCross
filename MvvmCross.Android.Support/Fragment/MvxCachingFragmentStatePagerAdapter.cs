@@ -10,12 +10,11 @@ using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Support.V4.View;
 using Java.Lang;
-using MvvmCross.Core.Platform;
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Droid.Views;
-using MvvmCross.Droid.Views.Attributes;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Droid.Platform;
+using MvvmCross.Core;
+using MvvmCross.Platform.Android;
+using MvvmCross.Platform.Android.Presenters.Attributes;
+using MvvmCross.Platform.Android.Views;
+using MvvmCross.ViewModels;
 using String = Java.Lang.String;
 
 namespace MvvmCross.Droid.Support.V4
@@ -41,11 +40,6 @@ namespace MvvmCross.Droid.Support.V4
         public override int Count => FragmentsInfo?.Count() ?? 0;
 
         public List<MvxViewPagerFragmentInfo> FragmentsInfo { get; }
-
-        protected string FragmentJavaName(Type fragmentType)
-        {
-            return Class.FromType(fragmentType).Name;
-        }
 
         public override Fragment GetItem(int position, Fragment.SavedState fragmentSavedState = null)
         {

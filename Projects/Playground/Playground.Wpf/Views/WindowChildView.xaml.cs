@@ -1,15 +1,10 @@
-using MvvmCross.Core.ViewModels;
-using MvvmCross.Core.Views;
-using MvvmCross.Wpf.Views;
-using MvvmCross.Wpf.Views.Presenters.Attributes;
-using Playground.Core.ViewModels;
+﻿using MvvmCross.Platform.Wpf.Presenters.Attributes;
+using MvvmCross.Presenters;
+using MvvmCross.ViewModels;
 
 namespace Playground.Wpf.Views
 {
-    /// <summary>
-    /// Interaction logic for WindowChildView.xaml
-    /// </summary>
-    public partial class WindowChildView : MvxWpfView<WindowChildViewModel>, IMvxOverridePresentationAttribute
+    public partial class WindowChildView :  IMvxOverridePresentationAttribute
     {
         public WindowChildView()
         {

@@ -2,16 +2,15 @@
 // The .NET Foundation licenses this file to you under the MS-PL license.
 // See the LICENSE file in the project root for more information.
 
-using MvvmCross.Platform;
-using MvvmCross.Platform.Droid;
-using MvvmCross.Platform.Exceptions;
-using MvvmCross.Platform.Plugins;
+using MvvmCross.Exceptions;
+using MvvmCross.Platform.Android;
+using MvvmCross.Plugin.File;
 
-namespace MvvmCross.Plugins.File.Droid
+namespace MvvmCross.Plugin.File.Platform.Android
 {
+    [MvxPlugin]
     [Preserve(AllMembers = true)]
-    public class Plugin
-        : IMvxConfigurablePlugin
+    public class Plugin : IMvxConfigurablePlugin
     {
         private MvxFileConfiguration _configuration;
         private MvxFileConfiguration Configuration => _configuration ?? new MvxFileConfiguration(

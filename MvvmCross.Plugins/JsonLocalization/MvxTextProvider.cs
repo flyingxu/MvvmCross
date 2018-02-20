@@ -3,18 +3,16 @@
 // See the LICENSE file in the project root for more information.
 
 using MvvmCross.Localization;
-using MvvmCross.Plugins.ResourceLoader;
+using MvvmCross.Plugin.ResourceLoader;
 
-namespace MvvmCross.Plugins.JsonLocalization
+namespace MvvmCross.Plugin.JsonLocalization
 {
     public abstract class MvxTextProvider :
         MvxResourceProvider, IMvxTextProvider
     {
-        #region Implementation of IMvxTextProvider
-
         public abstract string GetText(string namespaceKey, string typeKey, string name);
 
-        public string GetText(string namespaceKey, string typeKey, string name, params object[] formatArgs)
+        public virtual string GetText(string namespaceKey, string typeKey, string name, params object[] formatArgs)
         {
             var baseText = GetText(namespaceKey, typeKey, name);
             if (string.IsNullOrEmpty(baseText))
@@ -28,7 +26,7 @@ namespace MvvmCross.Plugins.JsonLocalization
 
         public abstract bool TryGetText(out string textValue, string namespaceKey, string typeKey, string name);
 
-        public bool TryGetText(out string textValue, string namespaceKey, string typeKey, string name, params object[] formatArgs)
+        public virtual bool TryGetText(out string textValue, string namespaceKey, string typeKey, string name, params object[] formatArgs)
         {
             if (!TryGetText(out textValue, namespaceKey, typeKey, name)) return false;
 
@@ -43,7 +41,5 @@ namespace MvvmCross.Plugins.JsonLocalization
             textValue = string.Format(textValue, formatArgs);
             return true;
         }
-
-        #endregion Implementation of IMvxTextProvider
     }
 }

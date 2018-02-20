@@ -1,15 +1,10 @@
-using System;
-
+﻿using System;
+using MvvmCross;
 using MvvmCross.Binding.BindingContext;
-using MvvmCross.tvOS.Views;
-using MvvmCross.tvOS.Views.Presenters;
-using MvvmCross.Platform;
-using MvvmCross.Platform.tvOS.Views;
-using MvvmCross.tvOS.Views.Presenters.Attributes;
-
+using MvvmCross.Platform.Tvos.Presenters;
+using MvvmCross.Platform.Tvos.Presenters.Attributes;
+using MvvmCross.Platform.Tvos.Views;
 using Playground.Core.ViewModels;
-
-using Foundation;
 using UIKit;
 
 namespace Playground.TvOS
@@ -46,12 +41,12 @@ namespace Playground.TvOS
         private void BtnCloseStack_OnPrimaryATcionTriggered(object sender, EventArgs e)
         {
             var appDelegate = UIApplication.SharedApplication.Delegate as AppDelegate;
-            var presenter = Mvx.GetSingleton<IMvxTvosModalHost>() as MvxTvosViewPresenter;
+            var presenter = Mvx.GetSingleton<IMvxTvosViewPresenter>() as MvxTvosViewPresenter;
 
             if (appDelegate.Window.RootViewController.PresentedViewController != null)
             {
                 appDelegate.Window.RootViewController.DismissViewController(true, null);
-                presenter.NativeModalViewControllerDisappearedOnItsOwn();
+                presenter.CloseTopModalViewController();
             }
             else
             {

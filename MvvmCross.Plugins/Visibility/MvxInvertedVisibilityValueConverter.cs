@@ -3,11 +3,10 @@
 // See the LICENSE file in the project root for more information.
 
 using System.Globalization;
-using MvvmCross.Platform;
-using MvvmCross.Platform.ExtensionMethods;
-using MvvmCross.Platform.UI;
+using MvvmCross.Base;
+using MvvmCross.UI;
 
-namespace MvvmCross.Plugins.Visibility
+namespace MvvmCross.Plugin.Visibility
 {
     [Preserve(AllMembers = true)]
     public class MvxInvertedVisibilityValueConverter : MvxVisibilityValueConverter
@@ -17,15 +16,10 @@ namespace MvvmCross.Plugins.Visibility
             bool hide = parameter.ConvertToBooleanCore();
             switch (base.Convert(value, parameter, culture))
             {
-                case MvxVisibility.Visible:
-                    if (hide)
-                    {
-                        return MvxVisibility.Hidden;
-                    }
-                    else
-                    {
-                        return MvxVisibility.Collapsed;
-                    }
+                case MvxVisibility.Visible when hide:
+                    return MvxVisibility.Hidden;
+                case MvxVisibility.Visible when !hide:
+                    return MvxVisibility.Collapsed;
                 default:
                     return MvxVisibility.Visible;
             }

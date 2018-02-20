@@ -8,9 +8,9 @@ using Android.OS;
 using Android.Runtime;
 using Android.Support.Design.Widget;
 using Android.Views;
-using MvvmCross.Binding.Droid.BindingContext;
 using MvvmCross.Droid.Support.V4;
-using MvvmCross.Droid.Views.Attributes;
+using MvvmCross.Platform.Android.Binding.BindingContext;
+using MvvmCross.Platform.Android.Presenters.Attributes;
 using Playground.Core.ViewModels;
 
 namespace Playground.Droid.Views
@@ -19,7 +19,6 @@ namespace Playground.Droid.Views
     [Register(nameof(SplitMasterView))]
     public class SplitMasterView : MvxFragment<SplitMasterViewModel>, NavigationView.IOnNavigationItemSelectedListener
     {
-        private NavigationView navigationView;
         private IMenuItem previousMenuItem;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)

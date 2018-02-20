@@ -5,10 +5,9 @@
 using System;
 using System.IO;
 using System.Reflection;
-using MvvmCross.Platform;
-using MvvmCross.Platform.Exceptions;
+using MvvmCross.Exceptions;
 
-namespace MvvmCross.Plugins.JsonLocalization
+namespace MvvmCross.Plugin.JsonLocalization
 {
     [Preserve(AllMembers = true)]
 	public class MvxEmbeddedJsonDictionaryTextProvider
@@ -27,7 +26,7 @@ namespace MvvmCross.Plugins.JsonLocalization
             LoadJsonFromText(namespaceKey, typeKey, json);
         }
 
-        private string GetTextFromEmbeddedResource(string namespaceKey, string resourcePath)
+        protected virtual string GetTextFromEmbeddedResource(string namespaceKey, string resourcePath)
         {
             string path = namespaceKey + "." + GenerateResourceNameFromPath(resourcePath);
 

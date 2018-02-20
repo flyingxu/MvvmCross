@@ -1,7 +1,6 @@
-﻿﻿using MvvmCross.Core.ViewModels;
-using MvvmCross.iOS.Platform;
-using MvvmCross.iOS.Views.Presenters;
-using MvvmCross.Platform.Platform;
+﻿using MvvmCross.Platform.Ios.Core;
+using MvvmCross.Platform.Ios.Presenters;
+using MvvmCross.ViewModels;
 using Playground.Core;
 using UIKit;
 
@@ -24,12 +23,7 @@ namespace Playground.iOS
             return new App();
         }
 
-        protected override IMvxTrace CreateDebugTrace()
-        {
-            return new DebugTrace();
-        }
-
-        protected override IMvxIosViewPresenter CreatePresenter()
+        protected override IMvxIosViewPresenter CreateViewPresenter()
         {
             return new MvxIosViewPresenter(ApplicationDelegate, Window);
 

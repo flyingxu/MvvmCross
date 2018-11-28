@@ -15,12 +15,23 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\MvvmCross.Plugins\JsonLocalization\MvvmCross.Plugin.JsonLocalization.csproj" />
-    <ProjectReference Include="..\..\..\MvvmCross.Plugins\Json\MvvmCross.Plugin.Json.csproj" />
-    <ProjectReference Include="..\..\..\MvvmCross.Plugins\Messenger\MvvmCross.Plugin.Messenger.csproj" />
-    <ProjectReference Include="..\..\..\MvvmCross.Plugins\Network\MvvmCross.Plugin.Network.csproj" />
-    <ProjectReference Include="..\..\..\MvvmCross.Plugins\ResourceLoader\MvvmCross.Plugin.ResourceLoader.csproj" />
-    <ProjectReference Include="..\..\..\MvvmCross\MvvmCross.csproj" />
+    <Reference Include="MvvmCross.Plugin.Json">
+      <HintPath>..\..\..\MvvmCross.Plugins\All\bin\Debug\netstandard2.0\MvvmCross.Plugin.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugin.JsonLocalization">
+      <HintPath>..\..\..\MvvmCross.Plugins\All\bin\Debug\netstandard2.0\MvvmCross.Plugin.JsonLocalization.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugin.ResourceLoader">
+      <HintPath>..\..\..\MvvmCross.Plugins\All\bin\Debug\netstandard2.0\MvvmCross.Plugin.ResourceLoader.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugin.Messenger">
+      <HintPath>..\..\..\MvvmCross.Plugins\All\bin\Debug\netstandard2.0\MvvmCross.Plugin.Messenger.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross.Plugin.Network">
+      <HintPath>..\..\..\MvvmCross.Plugins\All\bin\Debug\netstandard2.0\MvvmCross.Plugin.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="MvvmCross">
+      <HintPath>..\..\..\MvvmCross\bin\Debug\netstandard2.0\MvvmCross.dll</HintPath>
+    </Reference>
   </ItemGroup>
-
 </Project>
